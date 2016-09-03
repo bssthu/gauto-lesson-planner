@@ -58,6 +58,6 @@ html, body, .page, .container {
 }
 
 .list-group-item.active {
-    background-color: #6699ff !important;
-    border-color: #6699ff !important;
+    background-color: #3875d6 !important;
+    border-color: #3875d6 !important;
 }

@@ -1,4 +1,4 @@
-const electron = require('electron');  
+const electron = require('electron');
 const app = electron.app;  
 const BrowserWindow = electron.BrowserWindow;
 
@@ -16,11 +16,9 @@ app.on('ready', function() {
         toolbar: false
     });
 
-    var aa = app.getAppPath();
     mainWindow.loadURL('file://' + app.getAppPath() + "/index.html");
 
     mainWindow.on('closed', function() {
         mainWindow = null;
     });
-
 });
