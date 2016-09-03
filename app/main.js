@@ -16,7 +16,8 @@ app.on('ready', function() {
         toolbar: false
     });
 
-    mainWindow.loadURL('file://' + __dirname + "/app/index.html");
+    var aa = app.getAppPath();
+    mainWindow.loadURL('file://' + app.getAppPath() + "/index.html");
 
     mainWindow.on('closed', function() {
         mainWindow = null;

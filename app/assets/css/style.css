@@ -1,0 +1,54 @@
+html {
+    font-family: sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+.page {
+}
+
+.container {
+}
+
+html, body, .page, .container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.left, .middle, .right {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.left {
+    width: 200px;
+    float: left;
+    background-color: #eeeeee;
+}
+
+.right {
+    width: 200px;
+    float: right;
+    top: 0;
+    background-color: #eeeeee;
+}
+
+.middle {
+    margin: 0 200px;
+    position: absolute;
+    top: 0;
+}
+
+.assert-subject-frame {
+}
+
+.list-group-item {
+    border-radius: 0px !important;
+    border-right-width: 0px;
+    background-color: #eeeeee;
+}
