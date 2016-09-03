@@ -47,8 +47,17 @@ html, body, .page, .container {
 .assert-subject-frame {
 }
 
+.post-define-frame {
+}
+
 .list-group-item {
-    border-radius: 0px !important;
-    border-right-width: 0px;
+    border-radius: 0 !important;
+    border-left-width: 0;
+    border-right-width: 0;
     background-color: #eeeeee;
+}
+
+.list-group-item.active {
+    background-color: #6699ff !important;
+    border-color: #6699ff !important;
 }
