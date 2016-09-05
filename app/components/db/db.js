@@ -1,6 +1,7 @@
 var sqlite3 = require('sqlite3').verbose();
 
-var transfers = ['ccc', 'ddd'];
+// load default db
+loadDb('./temp/default.sqlite');
 
 // 从文件中载入数据库
 function loadDb(dbPath) {
