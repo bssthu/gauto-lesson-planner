@@ -1,8 +1,8 @@
 
 // 获取去重后的 AssertSubject
-function getSubjectNames(transfers) {
+function getSubjectNames(records) {
     var subjectIds = {};
-    transfers.map(function(a) {subjectIds[a.subject_Id] = 0;});
+    records.map(function(a) {subjectIds[a.subject_Id] = 0;});
     return Object.keys(subjectIds);
 }
 

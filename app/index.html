@@ -8,20 +8,21 @@
     <!-- Custom -->
     <script type="text/javascript" src="./index.js"></script>
     <script type="text/javascript" src="./components/db/db.js"></script>
-    <script type="text/javascript" src="./components/assert-subject-frame/subject.util.js"></script>
-    <script type="text/javascript" src="./components/assert-subject-frame/subject.controller.js"></script>
+    <script type="text/javascript" src="./components/subject-frame/subject.util.js"></script>
+    <script type="text/javascript" src="./components/subject-frame/subject.controller.js"></script>
+    <script type="text/javascript" src="./components/transfer-frame/transfer.controller.js"></script>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
 <body>
 <div class="page">
     <div class="container">
         <div class="left" ng-controller="LeftCtrl">
-            <div ng-include="'./components/assert-subject-frame/assert-subject-frame.html'"></div>
+            <div ng-include="'./components/subject-frame/subject-frame.html'"></div>
         </div>
         <div class="middle">
         </div>
-        <div class="right">
-            <div class="post-define-frame">
+        <div class="right" ng-controller="RightCtrl">
+            <div ng-include="'./components/transfer-frame/transfer-frame.html'"></div>
             </div>
         </div>
     </div>

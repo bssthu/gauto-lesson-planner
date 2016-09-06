@@ -18,12 +18,12 @@ function loadDb(dbPath) {
 }
 
 // 更新 assert-subject 名字列表
-function updateSubjectNames(transfers) {
-    var appElement = document.querySelector('[ng-controller=SubjectFramesCtrl]');
+function updateSubjectNames(records) {
+    var appElement = document.querySelector('[ng-controller=SubjectFrameCtrl]');
     var $scope = angular.element(appElement).scope();
 
     // 更新到 Angular
     $scope.$apply(function() {
-        $scope.transfers = transfers;
+        $scope.records = records;
     });
 }
