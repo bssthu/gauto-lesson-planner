@@ -1,16 +1,10 @@
 
 // init
-glpApp.controller('SubjectFrameCtrl', SubjectFrameCtrl);
+glpApp.controller('SubjectFrameCtrl', ['$scope', 'DbService', SubjectFrameCtrl]);
 
-function SubjectFrameCtrl($scope) {
+function SubjectFrameCtrl($scope, DbService) {
     // 监视从数据库读入的数据变量
-    $scope.$watch('records', function(newValue, oldValue) {
-        if (newValue === oldValue) {
-            return;
-        }
-
-        $scope.names = getSubjectNames($scope.records);
-    });
+    $scope.names = DbService.subjectNames;
 
     // 选择 subject 时的处理
     $scope.onSelectSubject = function(index) {

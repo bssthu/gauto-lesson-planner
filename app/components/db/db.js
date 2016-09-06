@@ -19,11 +19,10 @@ function loadDb(dbPath) {
 
 // 更新 assert-subject 名字列表
 function updateSubjectNames(records) {
-    var appElement = document.querySelector('[ng-controller=SubjectFrameCtrl]');
+    var appElement = document.querySelector('[ng-app]');
     var $scope = angular.element(appElement).scope();
+    angular.element(appElement).injector().get('DbService').update(records);
 
     // 更新到 Angular
-    $scope.$apply(function() {
-        $scope.records = records;
-    });
+    $scope.$apply(function() {});
 }

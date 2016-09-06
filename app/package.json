@@ -6,5 +6,8 @@
     "angular": "~1.5.8",
     "bootstrap": "~3.3.7",
     "sqlite3": "~3.1.4"
+  },
+  "devDependencies": {
+    "bower": "~1.7.9"
   }
 }
