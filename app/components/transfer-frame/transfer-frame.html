@@ -1,5 +1,9 @@
 
 <div class="transfer-frame">
     <div ng-controller="TransferFrameCtrl">
+        <a href="#" class="list-group-item"
+           ng-repeat="record in records">
+            {{record.step_Id}}->{{record.next_Step_Id}}, {{record.cond_Id}}({{record.cond_Args}})
+        </a>
     </div>
 </div>
