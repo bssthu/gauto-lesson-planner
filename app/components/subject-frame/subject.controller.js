@@ -10,7 +10,8 @@ function SubjectFrameCtrl($scope, $filter, DbService) {
     $scope.onSelectSubject = function(index) {
         // 激活按钮
         $scope.activeIndex = index;
-        // 其他数据处理;
-        DbService.selectSubjectById($scope.subjectIds[index]);
+        // 其他数据
+        var selectedSubjectId = $scope.subjectIds[index];
+        DbService.selectSubjectById(selectedSubjectId);
     };
 }
