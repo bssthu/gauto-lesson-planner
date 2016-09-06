@@ -11,6 +11,8 @@
     <script type="text/javascript" src="./components/db/db.factory.js"></script>
     <script type="text/javascript" src="./components/subject-frame/subject.controller.js"></script>
     <script type="text/javascript" src="./components/transfer-frame/transfer.controller.js"></script>
+    <script type="text/javascript" src="./components/canvas-frame/canvas.factory.js"></script>
+    <script type="text/javascript" src="./components/canvas-frame/canvas.controller.js"></script>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
 <body>
@@ -19,10 +21,11 @@
         <div class="left" ng-controller="LeftCtrl">
             <div ng-include="'./components/subject-frame/subject-frame.html'"></div>
         </div>
-        <div class="middle">
-        </div>
         <div class="right" ng-controller="RightCtrl">
             <div ng-include="'./components/transfer-frame/transfer-frame.html'"></div>
+        </div>
+        <div class="middle">
+            <div ng-include="'./components/canvas-frame/canvas-frame.html'" class="expanded-div"></div>
         </div>
     </div>
 </div>

@@ -25,7 +25,7 @@ glpApp.factory('DbService', ['$filter', function($filter) {
      * @param subjectId 选中的 Subject 的 id
      */
     var selectSubjectById = function(subjectId) {
-        var selectedRecords = $filter('filter')(records, function (record) {
+        var selectedRecords = $filter('filter')(records, function(record) {
             return record.subject_Id === subjectId;
         });
         currentRecords.length = 0;
