@@ -39,7 +39,11 @@ jspm_packages
 # bower directory
 bower_components
 
-.idea/*
 temp/*
+cache/*
+dist/*
+*.asar
+
+.idea/*
 *~
 *.swp
