@@ -9,6 +9,8 @@ glpApp.factory('DbService', ['$filter', function($filter) {
     var subjectIds = [];
     // 选中的 Subject 对应的记录
     var currentRecords = [];
+    // 选中的 record
+    var currentRecord = null;
 
     /**
      * 更新从数据库读入的记录
@@ -30,6 +32,19 @@ glpApp.factory('DbService', ['$filter', function($filter) {
         });
         currentRecords.length = 0;
         Array.prototype.push.apply(currentRecords, selectedRecords);
+        currentRecord = null;
+    };
+
+    /**
+     * 选择 record
+     * @param recordId currentRecords 中选中的 Subject 的 id
+     */
+    var selectRecordById = function(recordId) {
+        currentRecord = currentRecords[recordId];
+    };
+
+    var getCurrentRecord = function() {
+        return currentRecord;
     };
 
     // 去重，得到 Subject id 列表
@@ -46,7 +61,9 @@ glpApp.factory('DbService', ['$filter', function($filter) {
         records: records,
         subjectIds: subjectIds,
         currentRecords: currentRecords,
+        currentRecord: getCurrentRecord,
         setRecords: setRecords,
-        selectSubjectById: selectSubjectById
+        selectSubjectById: selectSubjectById,
+        selectRecordById: selectRecordById
     };
 }]);

@@ -11,8 +11,8 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
     mainWindow = new BrowserWindow({
         name: "gauto-lesson-planner",
-        width: 800,
-        height: 600,
+        width: 1280,
+        height: 720,
         toolbar: false
     });
 

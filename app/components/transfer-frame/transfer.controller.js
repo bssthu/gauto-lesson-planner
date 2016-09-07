@@ -10,5 +10,6 @@ function TransferFrameCtrl($scope, $filter, DbService) {
     $scope.onSelectTransfer = function(index) {
         // 激活按钮
         $scope.activeIndex = index;
+        DbService.selectRecordById(index);
     };
 }

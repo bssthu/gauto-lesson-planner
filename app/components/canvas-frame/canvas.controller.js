@@ -7,6 +7,7 @@ function CanvasFrameCtrl($scope, CanvasService, DbService) {
     var context = canvas.getContext('2d');
 
     $scope.currentRecords = DbService.currentRecords;
+    $scope.DbService = DbService;
     $scope.nodes = CanvasService.nodes;
 
     $scope.$watch('currentRecords', function(newValue, oldValue) {
@@ -14,6 +15,10 @@ function CanvasFrameCtrl($scope, CanvasService, DbService) {
             return;
         }
         CanvasService.updateCurrentRecords($scope.currentRecords);
+        draw(context, $scope.currentRecords, $scope.nodes);
+    }, true);
+
+    $scope.$watch('DbService.currentRecord()', function(newValue) {
         draw(context, $scope.currentRecords, $scope.nodes);
     }, true);
 
@@ -29,14 +34,45 @@ function CanvasFrameCtrl($scope, CanvasService, DbService) {
         context.canvas.width = window.innerWidth;
         context.canvas.height = window.innerHeight;
 
+        var currentRecord = DbService.currentRecord();
+        var defaultLineWidth = context.lineWidth;
+
+        // step rect
         for (var i = 0; i < nodes.length; i++) {
+            if (currentRecord != null && currentRecord.step_Id === nodes[i]) {
+                console.log(currentRecord.step_Id, nodes[i]);
+                context.fillStyle = '#3875ff';
+                context.strokeStyle = '#3875ff';
+                context.lineWidth = defaultLineWidth * 3;
+            } else {
+                context.fillStyle = '#000000';
+                context.strokeStyle = '#000000';
+                context.lineWidth = defaultLineWidth;
+            }
             drawStep(context, nodes.length, i, nodes[i]);
         }
-        angular.forEach(records, function(record) {
+        context.fillStyle = '#000000';
+        context.strokeStyle = '#000000';
+        context.lineWidth = defaultLineWidth;
+
+        // transfer curve
+        records.forEach(function(record) {
             var stepId = record.step_Id;
             var nextStepId = record.next_Step_Id;
+            if (currentRecord != null
+                && currentRecord.step_Id === stepId
+                && currentRecord.next_Step_Id == nextStepId) {
+                context.strokeStyle = '#3875ff';
+                context.lineWidth = defaultLineWidth * 3;
+            } else {
+                context.strokeStyle = '#000000';
+                context.lineWidth = defaultLineWidth;
+            }
             drawTransferCurve(context, nodes.length, nodes.indexOf(stepId), nodes.indexOf(nextStepId));
         });
+        context.fillStyle = '#000000';
+        context.strokeStyle = '#000000';
+        context.lineWidth = defaultLineWidth;
     }
 
     /**
@@ -55,8 +91,7 @@ function CanvasFrameCtrl($scope, CanvasService, DbService) {
         var width = windowWidth / 5;
         var height = windowHeight / idNum / 2;
         // rect
-        context.rect(cx - width / 2, cy - height / 2, width, height);
-        context.stroke();
+        context.strokeRect(cx - width / 2, cy - height / 2, width, height);
         // text
         var fontArgs = context.font.split(' ');
         context.textAlign = 'center';
