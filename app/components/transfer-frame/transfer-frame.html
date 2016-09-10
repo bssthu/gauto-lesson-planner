@@ -5,7 +5,7 @@
            ng-repeat="record in records"
            ng-class="{active: $index == activeIndex}"
            ng-click="onSelectTransfer($index)">
-            {{record.step_Id}}->{{record.next_Step_Id}}, {{record.cond_Id}}({{record.cond_Args}})
+            {{record.step_Id}}->{{record.next_Step_Id}}, {{record.cond}}
         </a>
     </div>
 </div>
