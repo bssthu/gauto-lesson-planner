@@ -40,7 +40,6 @@ function CanvasFrameCtrl($scope, CanvasService, DbService) {
         // step rect
         for (var i = 0; i < nodes.length; i++) {
             if (currentRecord != null && currentRecord.step_Id === nodes[i]) {
-                console.log(currentRecord.step_Id, nodes[i]);
                 context.fillStyle = '#3875ff';
                 context.strokeStyle = '#3875ff';
                 context.lineWidth = defaultLineWidth * 3;

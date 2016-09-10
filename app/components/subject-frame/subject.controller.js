@@ -1,8 +1,8 @@
 
 // init
-glpApp.controller('SubjectFrameCtrl', ['$scope', '$filter', 'DbService', SubjectFrameCtrl]);
+glpApp.controller('SubjectFrameCtrl', ['$scope', 'DbService', SubjectFrameCtrl]);
 
-function SubjectFrameCtrl($scope, $filter, DbService) {
+function SubjectFrameCtrl($scope, DbService) {
     // 去重后的 Subject id
     $scope.subjectIds = DbService.subjectIds;
 

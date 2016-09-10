@@ -52,6 +52,8 @@ html, body, .page, .container {
 }
 
 .transfer-frame {
+    height: 100% !important;
+    position: absolute;
 }
 
 .canvas-frame {

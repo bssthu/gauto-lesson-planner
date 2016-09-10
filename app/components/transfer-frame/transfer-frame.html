@@ -1,11 +1,12 @@
 
 <div class="transfer-frame">
-    <div ng-controller="TransferFrameCtrl">
+    <div ng-controller="TransferFrameCtrl" style="height: 100%!important; overflow-y:auto">
         <a href="#" class="list-group-item"
            ng-repeat="record in records"
            ng-class="{active: $index == activeIndex}"
            ng-click="onSelectTransfer($index)">
-            {{record.step_Id}}->{{record.next_Step_Id}}, {{record.cond}}
+            {{record.step_Id}}->{{record.next_Step_Id}}, <br />
+            {{record.condFuncString}}
         </a>
     </div>
 </div>

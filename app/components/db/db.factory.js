@@ -18,6 +18,21 @@ glpApp.factory('DbService', ['$filter', function($filter) {
     var setRecords = function(newRecords) {
         records.length = 0;
         Array.prototype.push.apply(records, newRecords);
+        // parse cond
+        records.forEach(function(record) {
+            // 遍历每条记录
+            record.condFuncString = record.cond;
+            try {
+                var json = JSON.parse(record.cond);
+                var condFuncs = [];
+                json.forEach(function(cond) {
+                    condFuncs.push('f_' + cond[0] + '(' + cond[1] + ')');
+                });
+                record.condFuncString = condFuncs.join(' && ');
+            } catch (err) {
+                console.log(err);
+            }
+        });
         // update other info
         updateSubjectIds();
     };
@@ -50,7 +65,7 @@ glpApp.factory('DbService', ['$filter', function($filter) {
     // 去重，得到 Subject id 列表
     var updateSubjectIds = function() {
         subjectIds.length = 0;
-        angular.forEach(records, function(record) {
+        records.forEach(function(record) {
             if (subjectIds.indexOf(record.subject_Id) === -1) {
                 subjectIds.push(record.subject_Id);
             }
